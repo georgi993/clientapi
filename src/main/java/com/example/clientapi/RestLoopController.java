@@ -12,7 +12,7 @@ public class RestLoopController {
         this.restLoopService = restLoopService;
     }
 
-    @GetMapping("/start")
+    @PostMapping("/start")
     public String startLoop(@RequestParam String url,
                             @RequestParam(defaultValue = "5") int totalRequests,
                             @RequestParam(defaultValue = "1000") long delayMillis) {

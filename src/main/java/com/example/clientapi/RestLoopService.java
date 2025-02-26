@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -33,8 +34,9 @@ public class RestLoopService {
                     transaction.setTransId((long) (i + 1000));
                     transaction.setUserId((long) (i + 1000));
                     transaction.setAmount(BigDecimal.valueOf((long) (i + 1000)));
-                    transaction.setTimestamp( new Timestamp(i));
+                    transaction.setTimestamp(Timestamp.from(Instant.now()));
                     transaction.setCountry(TransactionCountry.getRandomCountry().toString());
+                    //transaction.setCountry("BAHAMAS");
                     transaction.setLatitudeCoord(20.2);
                     transaction.setLongtudeCoord(60.2);
                     transactionList.add(transaction);  // Add to list
